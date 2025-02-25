@@ -6,156 +6,61 @@ body {
   overflow-y: scroll;
 }
 
-#menu-toggle {
+.nav-menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #F5F5DC;
+  padding-inline: 2vw;
+  padding-block: 1vw;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-menu {
   display: none;
 }
 
-.burger-icon {
-  position: sticky;
-  top: 2vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 25px;
-  cursor: pointer;
-  margin: 20px;
-  margin-top: 3vw;
-  z-index: 2;
-}
-
-.burger-icon span {
-  height: 4px;
-  background-color: var(--tertiary-color);
-  border-radius: 5px;
-  transition: all 0.3s;
-}
-
-.navi {
-  background-color: #333;
-  padding: 10px;
-  margin-bottom: 10px;
-  overflow: hidden;
-  position: relative;
-  flex-direction: column;
-}
-
-#menu-toggle:checked + .hamburger + ul {
+.nav-menu.active {
   display: block;
 }
 
-.navi {
-  text-decoration: none;
-  border-radius: 8px;
-  padding: 6px 6px;
-}
-
-.navi a.icon {
-  background: black;
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 0;
-
-}
-
-.navi a:hover {
-  background-color: #111;
-}
-
-.navi a:active {
-  opacity: 0.5;
-}
-
-nav {
-  width: 100%;
-  background-color: #F5F5DC;
-  padding: 10px 0;
+#burger-menu {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 25px;
+  left: 20px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
   z-index: 1;
 }
 
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.bar {
+  width: 40px;
+  height: 4px;
+}
+
+.navi ul {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  list-style: none;
+  gap: 5vw;
 }
 
-nav li {
-  margin-right: 20px;
-}
-
-nav a {
-  color: #964B00;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 15px;
-  border-radius: 5px;
-  transition: background 0.3s;
-}
-
-nav a:hover {
-  background-color: #786C3B;
-}
-
-.burger-menu {
-  display: block;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  cursor: pointer;
-  z-index: 2;
-}
-
-.burger-icon input[type="checkbox"] {
-  display: none;
-}
-
-.burger-icon label {
-  display: block;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-}
-
-.burger-icon label div {
-  width: 30px;
-  height: 3px;
-  background-color: #964B00;
-  margin: 5px;
-  transition: all 0.3s ease;
-}
-
-.burger-icon input[type="checkbox"]:checked + label div.bar1 {
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.burger-icon input[type="checkbox"]:checked + label div.bar2 {
-  opacity: 0;
-}
-
-.burger-icon input[type="checkbox"]:checked + label div.bar3 {
-  transform: rotate(45deg) translate(-5px, -6px);
-}
-
-.profile-container {
+#profile-section {
   display: flex;
   flex-direction: column;
+  margin-top: 8vw;
   align-items: center;
-  margin-top: 120px;
-  padding-bottom: 50px;
-  transition: transform 0.5s ease;
-  background-color: #F5F5DC;
+  padding: 20px;
 }
 
 .profile-picture {
@@ -181,7 +86,15 @@ nav a:hover {
 
 .work-experience-section {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.work-experience-section .experiences {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
 }
 
@@ -203,6 +116,7 @@ nav a:hover {
 
 .education-section {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
@@ -210,6 +124,13 @@ nav a:hover {
   width: 100px;
   height: 100px;
   border-radius: 50%;
+  margin: 10px;
+}
+
+.education-section .education-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 10px;
 }
 
@@ -262,275 +183,4 @@ footer {
   z-index: 10;
   height: 40px;
   margin-top: 20px;
-}
-
-@media only screen and (max-width: 768px) {
-  nav {
-      flex-direction: column;
-      align-items: center;
-  }
-  nav ul {
-      flex-direction: column;
-      align-items: center;
-  }
-  nav li {
-      margin-right: 0;
-  }
-  .nav-menu {
-      margin-left: 0;
-  }
-  .profile-container {
-      margin-top: 80px;
-  }
-  .about-section, .work-experience-section, .education-section, .skills-section, .exercises-section, .project-section {
-      margin-top: 10px;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  nav {
-      flex-direction: column;
-      align-items: center;
-  }
-  nav ul {
-      flex-direction: column;
-      align-items: center;
-  }
-  nav li {
-      margin-right: 0;
-  }
-  .nav-menu {
-      margin-left: 0;
-  }
-  .profile-container {
-      margin-top: 60px;
-  }
-  .about-section, .work-experience-section, .education-section, .skills-section, .exercises-section, .project-section {
-      margin-top: 5px;
-  }
-  .work-experience-section .experience {
-      width: 100%;
-      margin: 10px;
-  }
-  .education-section img {
-      width: 50px;
-      height: 50px;
-  }
-  .education-section .education-info {
-      margin: 5px;
-  }
-
-  .off-screen-menu{
-    background-color: rgb(41, 35, 33);
-    height: 100vh;
-    width: 100%;
-    max-width:450px;
-    position: fixed;
-    top: 0;
-    right: -450px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 3rem;
-    transition: .3s ease;
-
-  }
-
-  .off-screen-menu.active{
-    right: 0;
-  }
-
-nav{
-  padding: 1rem;
-  display: flex;
-  background-color: rgb(238, 147, 111);
-}
-
-  .burger-icon {
-      height: 50px;
-      width: 50px;
-      margin-left: auto;
-      position: relative;
-      position: sticky;
-      top: 2vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      width: 30px;
-      height: 25px;
-      cursor: pointer;
-      margin: 20px;
-      margin-top: 3vw;
-      z-index: 2;
-  }
-
-  .burger-icon span {
-      height: 5px;
-      width: 100%;
-      background-color: var(--tertiary-color);
-      border-radius: 25px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50);
-      transition: .3s ease; 
-      transition: all 0.3s;
-  }
-
-  .burger-icon span:nth-child(1){
-     top: 25%;
-  }
-
-  .burger-icon span:nth-child(1){ 
-    top: 75%;
-  }
-
-  .burger-menu.active span:nth-child(1){
-    top: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-  .burger-menu.active span:nth-child(2){
-    opacity: 0%;
-  }
-  .burger-menu.active span:nth-child(3){
-    top: 50%;
-    transform: translate(-50%, -50%) rotate(-45deg);
-  }
-
-}
-
-@media only screen and (max-width: 320px) {
-  nav {
-      flex-direction: column;
-      align-items: center;
-  }
-  nav ul {
-      flex-direction: column;
-      align-items: center;
-  }
-  nav li {
-      margin-right: 0;
-  }
-  .nav-menu {
-      margin-left: 0;
-  }
-  .profile-container {
-      margin-top: 40px;
-  }
-  .about-section, .work-experience-section, .education-section, .skills-section, .exercises-section, .project-section {
-      margin-top: 5px;
-  }
-  .work-experience-section .experience {
-      width: 100%;
-      margin: 5px;
-  }
-  .education-section img {
-      width: 30px;
-      height: 30px;
-  }
-  .education-section .education-info {
-      margin: 2px;
-  }
-}
-
-.navi {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background-color: #F5F5DC;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.burger-icon {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 20px;
-  margin-right: 1rem;
-}
-
-.burger-icon span {
-  width: 20px;
-  height: 2px;
-  background-color: #964B00;
-  margin-bottom: 5px;
-}
-
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-.menu li {
-  margin-right: 20px;
-}
-
-.menu a {
-  text-decoration: none;
-  color: #964B00;
-}
-
-.menu a:hover {
-  color: #F5F5DC;
-}
-
-.nav-menu {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .navi {
-      flex-direction: column;
-      align-items: flex-start;
-  }
-
-  .burger-icon {
-      margin-right: 0;
-  }
-
-  .navigation {
-      display: none;
-  }
-
-  .navi label {
-      display: block;
-      width: 100%;
-      text-align: center;
-  }
-
-  .navi label .burger-icon {
-      margin: 0 auto;
-  }
-
-  .navi label .menu {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 10px;
-  }
-
-  .navi label .menu li {
-      margin-right: 0;
-      margin-bottom: 10px;
-  }
-
-  #menu-toggle:checked + label .menu {
-      display: flex;
-  }
 }
